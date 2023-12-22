@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<!-- DIGITAL CLOCK ASSIGNMENT MADE BY MUHAMMAD SHAHZAIB NAZEER-->
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CLOCK-88904</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        }
+
+        /* STYLING DIGITAL CLOCK */
+        #navbar {
+            display: flex;
+            justify-content: center;
+            font-size: 5vw;
+            color: brown;
+        }
+
+        /* CENTER AND RESPONSIVE */
+        .container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 40vw;
+            font-size: 20vw;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- DISPLAYING DIGITAL CLOCK  -->
+    <nav id="navbar">DIGITAL CLOCK</nav>
+    <!-- BODY OF TIMER  -->
+    <div class="container">
+        <div id="hours">00</div>
+        <div>:</div>
+        <div id="minutes">00</div>
+        <div>:</div>
+        <div id="seconds">00</div>
+        <div>:</div>
+        <div id="am-pm">00</div>
+    </div>
+</body>
+
+<script>
+    // CALLING AND STORING ALL DIALS NUMS AND MAKING IT A FUNCTION
+    function clock() {
+        let hours1 = document.getElementById('hours');
+        let minutes2 = document.getElementById('minutes');
+        let seconds3 = document.getElementById('seconds');
+        let period = document.getElementById('am-pm');
+
+        // GETTING CURRENT TIME AND STORING
+        let h = new Date().getHours();
+        let m = new Date().getMinutes();
+        let s = new Date().getSeconds();
+
+        // LOGIC OF CHANGING AM AND PM 
+        let ampm = h >= 12 ? "PM" : "AM";
+
+        // LOGIC OF MAKING A "0" BEFORE ALL SINGAL DIGIT 
+        h = h < 10 ? "0" + h : h;
+        m = m < 10 ? "0" + m : m;
+        s = s < 10 ? "0" + s : s;
+
+        // PUTTING REAL TIME IN TO HTML DIALS 
+        hours1.innerText = h;
+        minutes2.innerText = m;
+        seconds3.innerText = s;
+        period.innerText = ampm;
+
+        // MAKING IT A 12 HOURS FORMAT CLOCK 
+        if (h => 12) { h = h - 12 } else { h = h };
+
+    };
+
+    // AUTO REFRESHING THE TIME 
+    setInterval(clock, 1000);
+
+</script>
+<!-- WORKING -->
+
+</html>
